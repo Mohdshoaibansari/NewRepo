@@ -19,3 +19,4 @@ if __name__ == "__main__":
                 groups=row[1].split(',')
                 policies=row[2].split(',')
                 print(name,groups,policies)
+                line_count += 1
