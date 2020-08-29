@@ -1,0 +1,3 @@
+Username$Groups$Policies
+SAISURYA.TEKI@ALLIANZ.COM$one,Two
+mohd.shoaib@allianz.com$one,Two$arn:aws:iam::aws:policy/AmazonAppFlowReadOnlyAccess,arn:aws:iam::aws:policy/aws-service-role/AccessAnalyzerServiceRolePolicy
