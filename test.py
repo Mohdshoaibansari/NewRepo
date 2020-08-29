@@ -20,11 +20,11 @@ if __name__ == "__main__":
                     groups=row[1].split(',')
                     policies=row[2].split(',')
                 except IndexError:
-                    groups=null
+                    groups=[]
                 try:
                     policies=row[2].split(',')
                 except IndexError:
-                    policies=null
+                    policies=[]
                 
                     
                 print(name,groups,policies)
