@@ -4,7 +4,7 @@ pipeline {
         stage('build') {
             steps {
                 sh "PATH=\"\${PATH}:/usr/local/bin\"; \
-        python3.7 --version"
+        python3 --version"
             }
         }
     }
