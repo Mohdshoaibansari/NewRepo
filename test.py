@@ -18,7 +18,6 @@ if __name__ == "__main__":
                 name=row[0]
                 try:
                     groups=row[1].split(',')
-                    policies=row[2].split(',')
                 except IndexError:
                     groups=[]
                 try:
