@@ -8,7 +8,7 @@ pipeline {
             }
         }
 
-        stage('build') {
+        stage('deploy') {
             steps {
                 sh "PATH=\"\${PATH}:/usr/local/bin\"; \
         python3 test1.py"
