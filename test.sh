@@ -1,1 +1,1 @@
-aws iam get-user
+import boto3
