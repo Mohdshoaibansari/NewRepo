@@ -1,3 +1,4 @@
+
 pipeline {
     agent any
     stages {
@@ -14,5 +15,16 @@ pipeline {
         python3 test.py"
             }
         }
+
+        stage('aws') {
+            steps {
+                withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', accessKeyVariable: 'AWS_ACCESS_KEY_ID', credentialsId: 'mohammad', secretKeyVariable: 'AWS_SECRET_ACCESS_KEY']]) {
+                                    sh "PATH=\"\${PATH}:/usr/local/bin\"; \
+        python3 test.py"
+                    }
+
+            }
+        }
     }
 }
+
