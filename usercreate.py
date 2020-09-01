@@ -5,6 +5,7 @@ import string
 from random import *
 import csv
 
+
 def password_generate():
     
     lcharacters = string.ascii_lowercase
@@ -19,7 +20,6 @@ def password_generate():
     password=uchars+punc+lchars+dig
     
     return password
-
 
 def session_iam():
     #session = boto3.Session(profile_name='mfa')
@@ -37,6 +37,7 @@ def Userexist(username, ):
     except Exception as e:
         print("Creating New User")
         return True
+
 
 def create_user(username):
     userexist=Userexist(username)
@@ -57,7 +58,6 @@ def create_user(username):
         create_profile(username)
     else:
         print("User not created.")
-
 
 
 def create_profile(username):
@@ -81,8 +81,6 @@ def group_exit(group):
     except:
         #print("group_exit In Except")
         return False
-        
-
 
 def group_addition(username,groups):
     user=username
@@ -100,6 +98,7 @@ def group_addition(username,groups):
             #print(group)
     
     print('Not Added in Group', notpresent,'Please check if it exist')
+
 
 def policy_exit(policy):
         try:
@@ -124,26 +123,12 @@ def policy_attach(username, policies):
     
     print ("Policies Not Attached",notpresent,"Please check if they exist")
 
-
-
 if __name__ == "__main__":
-    # parser = argparse.ArgumentParser()
-    # parser.add_argument('-r', '--username', action='store',
-    #                     nargs=1, help='User to Add', required=True)
-    # parser.add_argument('-e', '--Groups', action='store',
-    #                     nargs="+",help='Please Enter Group Name', required=False)
-    # parser.add_argument('-p', '--Policies', action='store',
-    #                     nargs="+",help='Please Enter Policies ARN', required=False)
-
-    # args = parser.parse_args()
-    # name=args.username[0]  
-    # groups=args.Groups[0].split(",")
-    # policies=args.Policies[0].split(",")
 
     name=""
     groups=[]
     policies=[]
-    with open('/Users/mohdshoaib/SharedServices/usercreate/Users.csv') as csv_file:
+    with open('Users.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter='$')
         line_count = 0
         for row in csv_reader:
@@ -153,31 +138,19 @@ if __name__ == "__main__":
             else:
                 #print(f'\t{row[0]} works in the {row[1]} department, and was born in {row[2]}.')
                 name=row[0]
-                groups=row[1].split(',')
-                policies=row[2].split(',')
-
-
-                val = input("Chose from Following for {}:\n Group:1 \n policy:2 \n Both:3\n".format(name))
-
-                if val == "1":
-                    #print("This is one")
+                try:
+                    groups=row[1].split(',')
                     create_user(name)
                     group_addition(name,groups)
-                elif val=="2":
-                    #print("This is Two")
+                except IndexError:
+                    groups=[]
+                try:
+                    policies=row[2].split(',')
                     create_user(name)
                     policy_attach(name, policies)
-                elif val=="3":
-                    #print("Three")
-                    create_user(name)
-                    group_addition(name,groups)
-                    policy_attach(name, policies)
-                else:
-                    print("Select Valid Value")
+                except IndexError:
+                    policies=[]
                 
+                    
+                print(name,groups,policies)
                 line_count += 1
-
-
-
-##arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup
-##arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs
