@@ -1,2 +1,2 @@
-Username$Groups$Policies
-SAISURYA.TEKI@ALLIANZ.COM$one,Two$arn:aws:iam::aws:policy/AdministratorAccess,arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
+Username|Groups|Policies
+SAISURYA.TEKI@ALLIANZ.COM|one,Two|arn:aws:iam::aws:policy/AdministratorAccess,arn:aws:iam::aws:policy/AmazonEC2ReadOnlyAccess
