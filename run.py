@@ -1,11 +1,11 @@
-import test
+import usercreate
 import csv
 
 
 
 if __name__ == "__main__":
 
-    run= test.Usercreate()
+    run= usercreate.Usercreate()
     name=""
     groups=[]
     policies=[]
