@@ -9,12 +9,6 @@ pipeline {
             }
         }
         
-    stage('CleanWorkspace') {
-            steps {
-                cleanWs()
-            }
-        }
-
 
         stage('deploy') {
             steps {
@@ -23,7 +17,14 @@ pipeline {
         python3 run.py"
                     }
 
-            }
+                        }
+            
+            
+       stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+                }
+                                }
         }
     }
 }
