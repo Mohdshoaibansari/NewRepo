@@ -23,8 +23,8 @@ class Usercreate:
 
 
     def session_iam(self):
-        session = boto3.Session(profile_name='mohd')
-        #session = boto3.Session()
+        #session = boto3.Session(profile_name='mohd')
+        session = boto3.Session()
         iamsession=session.client('iam')
         return iamsession
 
