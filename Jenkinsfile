@@ -8,6 +8,12 @@ pipeline {
         python3 --version"
             }
         }
+        
+    stage('CleanWorkspace') {
+            steps {
+                cleanWs()
+            }
+        }
 
 
         stage('deploy') {
