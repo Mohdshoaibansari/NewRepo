@@ -9,7 +9,7 @@ if __name__ == "__main__":
     name=""
     groups=[]
     policies=[]
-    with open('/Users/mohdshoaib/SharedServices/usercreate/Users.csv') as csv_file:
+    with open('Users.csv') as csv_file:
         csv_reader = csv.reader(csv_file, delimiter='$')
         line_count = 0
         for row in csv_reader:
